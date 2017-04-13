@@ -336,17 +336,13 @@
       - section7
       - section7.7
         
-  - name: 7.7.3 Ensure Firewall application rules are active (enabled) (Scored)
-    lineinfile: >
-        dest=/etc/default/ufw
-        regexp='DEFAULT_APPLICATION_POLICY='
-        line='DEFAULT_APPLICATION_POLICY="ACCEPT"'
-        state=present
-        create=yes
+  - name: Install ufw configuration for prometheus
+    copy: src=etc/ufw/applications.d/prometheus dest=/etc/ufw/applications.d/prometheus
     when: activate_ufw
-    tags:
-      - section7
-      - section7.7
- 
-  - name: Allow inbound ssh
-    ufw: rule=allow port=22 proto=tcp
+
+  - name: Setup UFW for SSH and Prometheus
+    ufw: rule=allow name='{{item}}' state=enabled
+    with_items:
+      - OpenSSH
+      - Prometheus
+    when: activate_ufw

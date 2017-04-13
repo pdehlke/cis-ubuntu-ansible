@@ -1,0 +1,4 @@
+[Prometheus]
+title=Prometheus monitoring server
+description=Allows access to the Prometheus node and label exporters
+ports=9100,9900/tcp
