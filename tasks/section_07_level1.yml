@@ -347,12 +347,8 @@
     tags:
       - section7
       - section7.7
-      
-  - name: 7.7.3 Disable access to SMTP, Submission, and SMTPS
-    file:
-      path: /etc/ufw/applications.d/postfix
-      state: absent
-    when: activate_ufw
-    tags:
-      - section7
-      - section7.7
+ 
+  - name: Allow inbound ssh
+    ufw:
+      rule: allow
+      name: OpenSSH
