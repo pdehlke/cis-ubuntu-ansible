@@ -27,7 +27,7 @@
         line='set superusers="root"'
         state=present
         create=yes
-    when: grub_cfg_file.stat.exists == True and boot_superusers.rc == 1
+    when: grub_cfg_file.stat.exists == True and boot_superusers.rc == 1 and grub_enable_password == True
     tags:
       - section3
       - section3.3
@@ -53,7 +53,7 @@
         regexp='^password'
         line="password_pbkdf2 root {{root_password_grub}}"
         state=present
-    when: grub_cfg_file.stat.exists == True and boot_password.rc == 1
+    when: grub_cfg_file.stat.exists == True and boot_password.rc == 1 and grub_enable_password == True
     tags:
       - section3
       - section3.3
