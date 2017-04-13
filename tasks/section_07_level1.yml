@@ -331,6 +331,21 @@
         line='ENABLED=yes'
         state=present
         create=yes
+    lineinfile: >
+        dest=/etc/default/ufw
+        regexp='DEFAULT_APPLICATION_POLICY='
+        line='DEFAULT_APPLICATION_POLICY="ACCEPT"'
+        state=present
+        create=yes
+    when: activate_ufw
+    tags:
+      - section7
+      - section7.7
+      
+  - name: 7.7.3 Disable access to SMTP, Submission, and SMTPS
+    file:
+      path: /etc/ufw/applications.d/postfix
+      state: absent
     when: activate_ufw
     tags:
       - section7
