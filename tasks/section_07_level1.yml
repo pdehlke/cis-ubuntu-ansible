@@ -324,13 +324,19 @@
       - section7
       - section7.7
 
-  - name: 7.7.3 Ensure Firewall is active (enabled) (Scored)
+- name: 7.7.3 Ensure Firewall is active (enabled) (Scored)
     lineinfile: >
         dest=/etc/ufw/ufw.conf
         regexp='ENABLED='
         line='ENABLED=yes'
         state=present
         create=yes
+    when: activate_ufw
+    tags:
+      - section7
+      - section7.7
+        
+  - name: 7.7.3 Ensure Firewall application rules are active (enabled) (Scored)
     lineinfile: >
         dest=/etc/default/ufw
         regexp='DEFAULT_APPLICATION_POLICY='
