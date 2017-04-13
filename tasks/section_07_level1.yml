@@ -349,6 +349,4 @@
       - section7.7
  
   - name: Allow inbound ssh
-    ufw:
-      rule: allow
-      name: OpenSSH
+    ufw: rule=allow port=22 proto=tcp
