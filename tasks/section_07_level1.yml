@@ -324,7 +324,7 @@
       - section7
       - section7.7
 
-- name: 7.7.3 Ensure Firewall is active (enabled) (Scored)
+  - name: 7.7.3 Ensure Firewall is active (enabled) (Scored)
     lineinfile: >
         dest=/etc/ufw/ufw.conf
         regexp='ENABLED='
