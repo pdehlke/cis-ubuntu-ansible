@@ -1,1 +1,8 @@
-# This file contains variables specific to your environment
+remove_xserver: True
+permit_root_login: "no"
+sshd_allow_users:
+sshd_allow_groups:
+sshd_deny_users: "tomcat tomcat7 tomcat8 cassandra splunk"
+grub_enable_password: False
+root_password: "*"
+ntp_package: ntp
