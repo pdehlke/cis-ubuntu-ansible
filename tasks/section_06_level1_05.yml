@@ -23,7 +23,7 @@
       - section6.5.3
 
   - name: 6.5.4.1 Configure Network Time Protocol (server check) (NTP) (Scored)
-    command: 'grep "^pool" /etc/ntp.conf'
+    command: 'grep "^pool\|^server" /etc/ntp.conf'
     register: ntp_server_rc
     changed_when: False
     check_mode: no
