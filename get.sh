@@ -12,7 +12,7 @@ if [ -z "$IP" ]; then
   sudo apt-get install -y aptitude
 fi
 
-sudo apt-get install -y python-pip git python-dev
+sudo apt-get install -y python-pip git python-dev python-cryptography
 sudo pip install ansible markupsafe
 }
 
